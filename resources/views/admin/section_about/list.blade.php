@@ -5,7 +5,7 @@
       @foreach ($section_about_list as $key => $item)
       <div class="col-xxl-4 col-lg-6">
         <div class="project-box mb-4">
-        <div  class="gallery my-gallery mb-1" id="aniimated-thumbnials13" itemscope="" data-pswp-uid="14">
+          <div  class="gallery my-gallery mb-1" id="aniimated-thumbnials13" itemscope="" data-pswp-uid="14">
             <figure style="width:100px; height:100px;" class="col-md-3 img-hover hover-14" itemprop="associatedMedia" itemscope=""><a href="{{$item->image}}" itemprop="contentUrl" data-size="{{$item->width}}x{{$item->height}}">
               <div><img class="me-1 rounded-circle" style="width:100px; height:100px; object-fit:cover;" src="{{$item->thumb}}" itemprop="thumbnail" alt=""></div></a>
               <figcaption itemprop="caption description">{{$item->title}}</figcaption>
@@ -94,7 +94,7 @@
   </div>
 </div>
 @section('ajax')
-<script src="/templates/admin/ajax_project_laravel/section_about.js"></script>
+<script src="/templates/default/admin/ajax_project_laravel/section_about.js"></script>
 @endsection
 
 @if (session('msg'))

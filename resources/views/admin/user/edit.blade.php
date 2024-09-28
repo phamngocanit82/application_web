@@ -149,6 +149,6 @@
   </div>
 </div>
 @section('ajax')
-<script src="/templates/admin/ajax_project_laravel/file_upload.js"></script>
-<script src="/templates/admin/ajax_project_laravel/user.js"></script>
+<script src="/templates/default/admin/ajax_project_laravel/file_upload.js"></script>
+<script src="/templates/default/admin/ajax_project_laravel/user.js"></script>
 @endsection

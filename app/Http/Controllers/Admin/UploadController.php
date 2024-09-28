@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Services\UploadService;
-use Intervention\Image\ImageManagerStatic as Image;
 class UploadController extends Controller
 {
     protected $upload;
@@ -13,7 +12,7 @@ class UploadController extends Controller
         $this->upload = $upload;
     }
     public function store(Request $request){
-        $data = $this->upload->store($request); 
+         $data = $this->upload->store($request); 
         if ($data !== false) {
             return response()->json([
                 'error' => false,

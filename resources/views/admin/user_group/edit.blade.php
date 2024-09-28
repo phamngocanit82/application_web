@@ -29,5 +29,5 @@
   </div>
 </div>
 @section('ajax')
-<script src="/templates/admin/ajax_project_laravel/user_group.js"></script>
+<script src="/templates/default/admin/ajax_project_laravel/user_group.js"></script>
 @endsection

@@ -9,18 +9,17 @@ function file_upload(id_image_upload, id_image_show, url_image_hidden, folder){
     processData: false,
     contentType: false,
     type: 'POST',
-    dataType: 'JSON',
+    dataType: 'json',
     data:form,
     url: '/admin/upload-services',
     success: function (results) {
       if (results.error === false) {
-          $(id_image_show).html('<div class="row gallery my-gallery mt-4" id="aniimated-thumbnials13" itemscope="" data-pswp-uid="1">' +
-'<figure class="col-md-3 img-hover hover-14" itemprop="associatedMedia" itemscope=""><a href="' + results.path + '" itemprop="contentUrl" data-size="' + results.width + 'x' + results.height + '" data-bs-original-title="" title="" >' +
-'<div><img src="' + results.path + '" itemprop="thumbnail" alt="Image description"></div></a>' +
+          $(id_image_show).html('<div class="row gallery my-gallery mt-4" id="aniimated-thumbnials13" itemscope="" data-pswp-uid="14">' +
+'<figure style="width:100px; height:100px;" class="col-md-3 img-hover hover-14" itemprop="associatedMedia" itemscope=""><a href="' + results.path + '" itemprop="contentUrl" data-size="' + results.width + 'x' + results.height + '" data-bs-original-title="" title="" >' +
+'<div><img src="' + results.thumb + '" itemprop="thumbnail" alt="Image description"></div></a>' +
 '<figcaption itemprop="caption description"></figcaption>' +
 '</figure>' +
 '</div>');
-
           $(url_image_hidden).val(results.path);
           $('#thumb_hidden').val(results.thumb);
           $('#width_hidden').val(results.width);
@@ -28,6 +27,9 @@ function file_upload(id_image_upload, id_image_show, url_image_hidden, folder){
       } else {
           alert('Upload File Lỗi');
       }
+    },
+    error: function() {
+      alert('Upload File Lỗi');
     }
   });
 }

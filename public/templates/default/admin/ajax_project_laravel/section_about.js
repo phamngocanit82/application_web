@@ -17,6 +17,7 @@ function submitForm() {
 }
 $(document).ready(function(){
   $('#admin_section_about_add').on('submit', function(e){
+    
     e.preventDefault();
     let section_about_title = $('input[name="section_about_title"]').val().trim();
     let section_about_description = $('textarea[name="section_about_description"]').val().trim();
@@ -30,6 +31,7 @@ $(document).ready(function(){
       active = 1;
     let action_url = $(this).attr('action');
     let csrfToken = $(this).find('input[name="_token"]').val().trim();
+
     $.ajax({
       url: action_url,
       type: 'POST',
@@ -43,7 +45,7 @@ $(document).ready(function(){
         section_about_active: active,
         _token: csrfToken
       },
-      dataType: 'json',
+      dataType: 'JSON',
       success: function(response){
         resetErrorFields();
         resetFields();

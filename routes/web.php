@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Client\MainController;
-
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\Admin\User\LoginController;
+use App\Http\Controllers\Admin\User\UserGroupController;
+use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Admin\MainController as AdminMainController;
+use App\Http\Controllers\Admin\Product\ProductGroupController;
+use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\SpecialController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\NewsController;
@@ -12,18 +16,28 @@ use App\Http\Controllers\Admin\SectionAboutController;
 use App\Http\Controllers\Admin\WhyUsController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\User\LoginController;
-use App\Http\Controllers\Admin\User\UserGroupController;
-use App\Http\Controllers\Admin\User\UserController;
-use App\Http\Controllers\Admin\MainController as AdminMainController;
-use App\Http\Controllers\Admin\Product\ProductGroupController;
-use App\Http\Controllers\Admin\Product\ProductController;
+
+use App\Http\Controllers\Admin\UploadController;
+
+use App\Http\Controllers\Client\MainController;
+use App\Http\Controllers\Client\ServiceController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('tasks', [TaskController::class, 'index']);
+Route::get('taskEdit/{id}/', [TaskController::class, 'edit']);
+Route::post('taskStore', [TaskController::class, 'store']);
+Route::get('taskDelete/{id}', [TaskController::class, 'destroy']);
+
+Route::get('admin/user/login', [LoginController::class, 'index'])->name('login');
+Route::get('admin/user/forgot-password', [LoginController::class, 'forgot_password']);
+Route::get('admin/user/recover-password', [LoginController::class, 'recover_password']);
+
 Route::get('', [MainController::class, 'index']);
+Route::get('services', [ServiceController::class, 'index']);
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminMainController::class, 'index']);
@@ -168,7 +182,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('upload-services', [UploadController::class, 'store']);
 
 });
-
-Route::get('admin/user/login', [LoginController::class, 'index'])->name('login');
-Route::get('admin/user/forgot-password', [LoginController::class, 'forgot_password']);
-Route::get('admin/user/recover-password', [LoginController::class, 'recover_password']);

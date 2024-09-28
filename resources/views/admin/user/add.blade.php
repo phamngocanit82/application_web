@@ -2,7 +2,7 @@
   <div class="col-sm-12">
     <div class="card">
       <div class="card-body">
-        <form form action="{{route('admin.user.post-add')}}" method="POST" id="admin_user_add">
+        <form form action="{{route('admin.user.post-add')}}" method="POST" id="admin_user_add" enctype="multipart/form-data">
           <div class="row g-3">
             <div class="col-md-8">
               <label class="form-label">User group list</label>
@@ -142,6 +142,6 @@
   </div>
 </div>
 @section('ajax')
-<script src="/templates/admin/ajax_project_laravel/file_upload.js"></script>
-<script src="/templates/admin/ajax_project_laravel/user.js"></script>
+<script src="/templates/default/admin/ajax_project_laravel/file_upload.js"></script>
+<script src="/templates/default/admin/ajax_project_laravel/user.js"></script>
 @endsection

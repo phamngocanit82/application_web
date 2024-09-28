@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  @include('admin.head')
+    @include('admin.head')
   </head>
   <body>
     <!-- Loader starts-->
